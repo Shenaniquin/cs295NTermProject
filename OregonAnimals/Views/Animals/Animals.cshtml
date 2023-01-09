@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Animals";
+}
+<h1>@ViewData["Title"]</h1>
+<p>
+    <div class="container text-white bg-secondary">
+        <h1>Please choose which animal you would like displayed.</h1>
+        <form method="get">
+            <input type="radio" id="displayAnimal1" class="form-check-input" name="displayAnimal" value="Beaver">
+            <label class="form-check-label" for="beaver">Beaver</label>
+            <input type="radio" id="displayAnimal2" class="form-check-input" name="displayAnimal" value="Couger">
+            <label class="form-check-label" for="couger">Couger</label>
+            <input type="radio" id="displayAnimal3" class="form-check-input" name="displayAnimal" value="Elk">
+            <label class="form-check-label" for="elk">Elk</label>
+            <input type="radio" id="displayAnimal4" class="form-check-input" name="displayAnimal" value="Skunk">
+            <label class="form-check-label" for="skunk">Skunk</label>
+            <input type="radio" id="displayAnimal5" class="form-check-input" name="displayAnimal" value="Deer">
+            <label class="form-check-label" for="deer">Deer</label>
+            <input type="radio" id="displayAnimal6" class="form-check-input" name="displayAnimal" value="Opossum">
+            <label class="form-check-label" for="opossum">Opossum</label>
+            <input type="radio" id="displayAnimal7" class="form-check-input" name="displayAnimal" value="Racoon">
+            <label class="form-check-label" for="racoon">Racoon</label>
+            <input type="radio" id="displayAnimal8" class="form-check-input" name="displayAnimal" value="Black Bear">
+            <label class="form-check-label" for="black bear">Black Bear</label><br />
+            <div class="row p-2">
+                <label for="UserName" class="control-label text-white col-1">User Name:</label>
+                <input name="UserName" class="form-control col-6" />
+            </div>
+            <div class="row">
+                <button class="btn form-control col btn-primary" type="submit">Submit</button>
+                <a asp-action="Animals" class="btn btn-info col">Reset</a>
+            </div>
+        </form>
+    </div>
+    @foreach(SightingModel sighting in Model)
+    {
+        <div class ="container-fluid p-5 bg-secondary">
+            <div class="row container-fluid border p-1 bg-light">
+                <div class="container-fluid border p-1 bg-light">Animal: @sighting.AnimalSighted.Animal</div><br />
+            </div>
+            <div class="row container-fluid border p-1 bg-light">
+                <img class="container-fluid border p-1 bg-light" src="@sighting.AnimalSighted.AnimalImage>">
+            </div>
+            <div class="row container-fluid border p-1 bg-light">
+                <div class="container-fluid border p-1 col-sm-6 bg-light">Animal Description @sighting.AnimalSighted.Description</div>
+            </div>
+        </div>
+    
+        <div class ="container-fluid p-5 bg-secondary">
+             <div class="row container-fluid border p-1 bg-light">
+                <div class="container-fluid border p-1 bg-light">Animal Sighted: @sighting.AnimalSighted.Animal</div> <br />
+             </div>
+             <div class="row container-fluid border p-1 bg-light">
+                <div class="container-fixed border p-1 col-sm-6 bg-light">Animal Num: @sighting.AnimalNum</div>
+                <div class="container-fixed border p-1 col-sm-6 bg-light">Location: @sighting.Location</div>
+             </div>
+             <div class="row container-fluid border p-1 bg-light">
+                <div class="container-fixed border p-1 col-sm-6 bg-light">UserName: @sighting.UserName</div>
+                <div class="container-fixed border p-1 col-sm-6 bg-light">Sighting Date: @sighting.SightingDate</div>
+             </div>
+        </div>
+    }
+</p>

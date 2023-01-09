@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Add Sighting";
+}
+<h1>@ViewData["Title"]</h1>
+@model SightingModel
+
+<p>
+    <div class="container bg-secondary">
+        <h1>Please record your sighting below!</h1>
+        <form method="post">
+            <label asp-for="AnimalSighted"></label>
+            <select asp-for="AnimalSighted">
+                <option value="Beaver">Beaver</option>
+                <option value="Couger">Couger</option>
+                <option value="Elk">Elk</option>
+                <option value="Skunk">Skunk</option>
+                <option value="Deer">Deer</option>
+                <option value="Opossum">Opossum</option>
+                <option value="Racoon">Racoon</option>
+                <option value="Black Bear">Black Bear</option>
+            </select><br />
+            <label asp-for="AnimalNum"></label>
+            <input asp-for="AnimalNum" /><br />
+            <label asp-for="Location"></label>
+            <input asp-for="Location" /><br />
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" /><br />
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</p>
